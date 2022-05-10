@@ -1,0 +1,34 @@
+<div class="select_list" [ngClass]="{'active': active}" (click)="active=!active">
+    <span [ngStyle]="{'background-image': 'url(' + obj.language_selected.url + ')'}">
+        {{obj.language_selected.name}}
+    </span>
+    <ul class="options">
+        <li class="select_list_option" *ngFor="let language of language_list" (click)="updateSelectBox(language);"
+            [ngStyle]="{'background-image':'url(' + language.url + ')'}">
+            {{language.name}}
+        </li>
+    </ul>
+</div>
+
+<h1>NG Select Implementation</h1>
+
+<ng-select [(ngModel)]="selectedCar" [multiple]="true">
+    <ng-option *ngFor="let car of cars" [value]="car.id">{{car.name}}</ng-option>
+</ng-select>
+
+<div style="height: 300px; margin: 2em; background: #EFF2F3">
+
+    <ng-scrollbar [shown]="'never'">
+
+        <div style="display: flex; width: 800px">
+            <img src="https://www.nawpic.com/media/2020/cool-pictures-for-nawpic-22.jpg" alt="">
+        </div>
+
+    </ng-scrollbar>
+
+    <div style="margin-top: 2em"></div>
+</div>
+
+<div class="item">
+    <ngx-skeleton-loader count="5" appearance="circle"></ngx-skeleton-loader>
+</div>

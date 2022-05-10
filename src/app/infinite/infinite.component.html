@@ -1,0 +1,7 @@
+<h1>Testing Infinite</h1>
+<div class="frame" (scroll)="scrolled($event)" #scrollframe>
+    <h1>Item List</h1>
+    <div *ngFor="let item of items; let i=index;" class="item" #item>
+        Item {{ i+1 }}
+    </div>
+</div>

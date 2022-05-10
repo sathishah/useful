@@ -1,0 +1,14 @@
+<!-- <cdk-virtual-scroll-viewport [itemSize]="30" class="wrapper">
+  <div *cdkVirtualFor="let item of items" class="item">
+    {{item}} {{itemRendered(item)}}
+  </div>
+</cdk-virtual-scroll-viewport>
+
+<button (click)="addMoreItems()">add more items</button> -->
+
+<h8k-navbar header="Color Picker"></h8k-navbar>
+<app-color-picker [colorOptions]="colorOptions" [initialColor]="initialColor"></app-color-picker>
+<ul>
+    <li *ngFor="let color of colorOptions" [style.color]="color" class="color-iem">
+    </li>
+</ul>

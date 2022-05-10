@@ -1,0 +1,28 @@
+<input [(ngModel)]="searchText" placeholder="Search.." class="advancedSearchTextbox">
+<p></p>
+<table *ngFor="let emp of customerData | searchFilter: {name: searchText, Age:searchText,  blog: searchText}; let i=index;" #myContainer>
+  <tr>
+    <td style="width: 5%;" class="test" [attr.data-name]="emp.name">{{i +1}}</td>
+    <td style="width: 10%;">{{emp.name}}</td>
+    <td style="width: 5%;">{{emp.Age}}</td>
+    <td style="width: 15%;">{{emp.blog}}</td>
+  </tr>
+</table>
+
+<input type="text" class="pass" (keypress)="currentValue($event)" (keyup)="changeMe($event)" (blur)="myValue($event)" />
+<input type="hidden" [(ngModel)]="pvalue" id="passVal"  name="passVal" (change)="showHiddenVal($event)" />
+
+
+
+<ul *ngFor="let emp of customerData | searchFilter: {name: searchText, Age:searchText,  blog: searchText}; let i=index;">
+  <ng-container [ngTemplateOutlet]='i % 2 == 0 ? even_tpl1 : odd_tpl1' [ngTemplateOutletContext]="{i:i, emp: emp}"></ng-container>
+</ul>
+
+
+<ng-template #odd_tpl1 let-number1='i' let-emp='emp'>
+  <li>Odd: {{number1}} : Name : {{emp.name}}</li>  
+</ng-template>
+
+<ng-template #even_tpl1 let-number1='i' let-emp='emp'>
+  <li>Even: {{number1}} : {{emp.name}}</li>  
+</ng-template>

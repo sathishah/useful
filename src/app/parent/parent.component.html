@@ -1,0 +1,6 @@
+<button (click)="notifyChild()">Toggle Child</button>
+<div>
+  <app-child  (newItemEvent)="addItem($event)" [notifier]="childNotifier" (testSubscribe)="getSubscription($event)" [updatedEvent]="eventsSubject.asObservable()"></app-child>
+</div>
+
+<country-picker [flag]="false" [setValue]="'cca3'" [setName]="'name.common'" [classes]="['form-control']"></country-picker>
